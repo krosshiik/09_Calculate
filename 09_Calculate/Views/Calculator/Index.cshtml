@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Калькулятор";
+    string selectedOperation = ViewBag.Operation ?? "Add"; // Устанавливаем выбранную операцию по умолчанию
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <form id="calculatorForm" method="post" asp-controller="Calculator" asp-action="Calculate">
+        @Html.AntiForgeryToken()
+
+        <input type="text" id="num1" name="num1" value="@ViewBag.Num1" placeholder="Введите первое число" required />
+
+        <select name="operation" required>
+            @if (selectedOperation == "Add")
+            {
+                <option value="Add" selected>+</option>
+            }
+            else
+            {
+                <option value="Add">+</option>
+            }
+
+            @if (selectedOperation == "Subtract")
+            {
+                <option value="Subtract" selected>-</option>
+            }
+            else
+            {
+                <option value="Subtract">-</option>
+            }
+
+            @if (selectedOperation == "Multiply")
+            {
+                <option value="Multiply" selected>*</option>
+            }
+            else
+            {
+                <option value="Multiply">*</option>
+            }
+
+            @if (selectedOperation == "Divide")
+            {
+                <option value="Divide" selected>/</option>
+            }
+            else
+            {
+                <option value="Divide">/</option>
+            }
+        </select>
+
+        <input type="text" id="num2" name="num2" value="@ViewBag.Num2" placeholder="Введите второе число" required />
+
+        <input type="submit" value="Рассчитать" />
+        <button type="button" onclick="clearFields()">Очистить</button>
+    </form>
+
+    @if (ViewBag.Result != null)
+    {
+        <h3 id="result">Результат: @ViewBag.Result</h3>
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <h3 style="color:red;">@ViewBag.ErrorMessage</h3>
+    }
+</div>
+
+<script>
+    // Функция для очистки полей и скрытия результата
+    function clearFields() {
+        document.getElementById('num1').value = '';
+        document.getElementById('num2').value = '';
+        document.getElementById('result').style.display = 'none';
+    }
+</script>
