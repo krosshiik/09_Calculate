@@ -1,20 +1,40 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f8ff; /* Светло-голубой фон */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Высота экрана */
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Вертикальное размещение */
+    min-height: 100vh; /* Минимальная высота экрана */
+}
+
+header {
+    width: 100%; /* Ширина на весь экран */
+    background-color: #d3d3d3; /* Светло-серый фон для хедера */
+    color: black; /* Черный текст */
+    text-align: center; /* Центрируем текст в шапке */
+    padding: 15px; /* Внутренние отступы */
+    border-bottom: 2px solid #ccc; /* Нижняя граница */
 }
 
 .container {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Белый фон контейнера */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 500px; /* Ширина контейнера */
+    max-width: 100%;
+    margin: auto; /* Центрирование */
+}
+
+h1 {
+    background-color: #4CAF50; /* Зеленый фон только для заголовка "Калькулятор" */
+    color: white; /* Белый текст */
+    padding: 10px;
+    border-radius: 5px; /* Скругленные углы */
+    margin: 0 auto 20px; /* Центрирование и отступ снизу */
+    width: fit-content; /* Ширина под содержимое */
 }
 
 h2 {
@@ -28,29 +48,41 @@ form {
     gap: 10px; /* Расстояние между элементами */
 }
 
-    form input[type="text"], form select {
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        width: 100%;
-    }
+form input[type="text"], form select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
 
-    form input[type="submit"], form button {
-        background-color: #4CAF50; /* Зеленая кнопка */
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 100%;
-    }
+form input[type="submit"], form button {
+    background-color: #4CAF50; /* Зеленая кнопка */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
 
-        form input[type="submit"]:hover, form button:hover {
-            background-color: #45a049;
-        }
+form input[type="submit"]:hover, form button:hover {
+    background-color: #45a049;
+}
 
 h3 {
     color: #ff4500; /* Цвет результата */
     margin-top: 20px;
+}
+
+footer {
+    width: 100%; /* Футер на всю ширину */
+    background-color: #d3d3d3; /* Светло-серый фон футера */
+    color: black; /* Черный текст */
+    text-align: center; /* Центрирование текста */
+    padding: 10px 0; /* Внутренние отступы */
+    position: relative;
+    bottom: 0;
+    border-top: 2px solid #ccc; /* Верхняя граница */
+    font-weight: bold; /* Жирный текст */
 }

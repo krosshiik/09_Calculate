@@ -3,9 +3,15 @@
     string selectedOperation = ViewBag.Operation ?? "Add"; // Устанавливаем выбранную операцию по умолчанию
 }
 
-<div class="container">
-    <h2>@ViewData["Title"]</h2>
+<!-- Шапка с названием и именем студента -->
+<header class="header">
+    <div class="title-left">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</header>
 
+<!-- Основное содержимое -->
+<div class="container">
     <form id="calculatorForm" method="post" asp-controller="Calculator" asp-action="Calculate">
         @Html.AntiForgeryToken()
 
